@@ -591,7 +591,6 @@ async function loadAll() {
     console.log('[DEBUG] Raw JSON data received:', data);
     console.log('[DEBUG] Type of data:', typeof data);
     console.log('[DEBUG] Is data an array?', Array.isArray(data));
-    console.log('[DEBUG] Is data an object?', typeof data === 'object' && !Array.isArray(data));
     
     // Extract the fakemon array from the object
     if (data.fakemon && Array.isArray(data.fakemon)) {
@@ -599,93 +598,63 @@ async function loadAll() {
       list = data.fakemon;
       console.log('[DEBUG] Original fakemon names:', list);
       
-      // Add .json extension to each filename if needed
-      const originalLength = list.length;
+      // Add .json extension to each filename
       list = list.map(name => {
         const withExtension = name.endsWith('.json') ? name : `${name}.json`;
         console.log(`[DEBUG] Mapping: "${name}" -> "${withExtension}"`);
         return withExtension;
       });
       
-      console.log(`[DEBUG] Processed ${originalLength} fakemon names with .json extension`);
+      console.log(`[DEBUG] Processed ${list.length} fakemon names with .json extension`);
     } else if (Array.isArray(data)) {
       console.log('[DEBUG] Data is directly an array');
       list = data;
-      console.log('[DEBUG] Array contents:', list);
     } else {
-      console.error('[DEBUG] Unexpected JSON structure - no fakemon array found');
-      console.error('[DEBUG] Available keys:', Object.keys(data));
+      console.error('[DEBUG] Unexpected JSON structure:', data);
       throw new Error('JSON does not contain a fakemon array');
     }
     
     console.log('[DEBUG] Final list array:', list);
-    console.log('[DEBUG] List length:', list.length);
     dlog(`fakemonlist.json OK — ${list.length} entries found`, 'ok');
     
   } catch(e) {
-    console.error('[DEBUG] Error in fetch/parse:', e);
+    console.error('[DEBUG] Error:', e);
     dlog(`FAILED to load fakemonlist.json: ${e.message}`, 'error');
-    dlog('Make sure fakemonlist.json is in the same folder as this page!', 'warn');
     document.getElementById('screen-loading').textContent = '⚠ Could not load fakemonlist.json';
     return;
   }
 
-  // Validate we have an array
-  if (!Array.isArray(list)) {
-    console.error('[DEBUG] list is not an array! Type:', typeof list);
-    dlog('fakemonlist.json does not contain an array!', 'error');
-    document.getElementById('screen-loading').textContent = '⚠ fakemonlist.json format error';
-    return;
-  }
-  
-  if (list.length === 0) {
-    console.warn('[DEBUG] list array is empty!');
-    dlog('fakemonlist.json contains no entries!', 'warn');
-    document.getElementById('screen-loading').textContent = '⚠ No Fakemon found in list';
+  if (!Array.isArray(list) || list.length === 0) {
+    console.error('[DEBUG] Invalid list:', list);
+    dlog('fakemonlist.json has no valid entries!', 'error');
+    document.getElementById('screen-loading').textContent = '⚠ No Fakemon found';
     return;
   }
 
-  console.log(`[DEBUG] Starting to load ${list.length} Fakemon files...`);
-  console.log('[DEBUG] Files to load:', list);
+  console.log(`[DEBUG] Loading ${list.length} Fakemon files...`);
   
   const results = await Promise.allSettled(
-    list.map(filename => {
-      console.log(`[DEBUG] Loading file: ${filename}`);
-      return loadOneFakemon(filename);
-    })
+    list.map(filename => loadOneFakemon(filename))
   );
 
-  console.log('[DEBUG] All loading attempts completed');
-  console.log('[DEBUG] Results:', results);
-
-  // Process results
-  let successCount = 0;
-  let failCount = 0;
-  
   results.forEach((result, i) => {
     if (result.status === 'fulfilled' && result.value) {
       ALL_FAKEMON.push(result.value);
-      successCount++;
-      console.log(`[DEBUG] Successfully loaded: ${result.value.name || 'unknown'} (${list[i]})`);
+      console.log(`[DEBUG] Loaded: ${result.value.name}`);
     } else {
-      failCount++;
-      console.error(`[DEBUG] Failed to load: ${list[i]}`, result.reason);
+      console.error(`[DEBUG] Failed: ${list[i]}`, result.reason);
     }
   });
 
-  console.log(`[DEBUG] Loading complete - Success: ${successCount}, Failed: ${failCount}`);
   dlog(`Loaded ${ALL_FAKEMON.length} / ${list.length} Fakemon successfully`, ALL_FAKEMON.length > 0 ? 'ok' : 'error');
 
   if (ALL_FAKEMON.length < 2) {
-    console.error('[DEBUG] Not enough Fakemon loaded! Need at least 2.');
     dlog('Need at least 2 valid Fakemon to start a battle!', 'error');
     document.getElementById('screen-loading').textContent = '⚠ Need at least 2 valid Fakemon.';
     return;
   }
 
-  console.log('[DEBUG] Building selection screen...');
   buildSelectScreen();
-  console.log('[DEBUG] Showing select screen');
   show('screen-select');
 }
 
