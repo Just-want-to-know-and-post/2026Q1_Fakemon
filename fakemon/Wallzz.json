@@ -21,10 +21,10 @@
       "id": "Sean",
       "name": "🧱 Hard",
       "desc": "Makes the opponent feel pain after they hit, because it hurts to hit a wall.",
-      "speed": "Slow",
+      "speed": "slow",
       "damage": [7, 12],
-      "status": "Bleed",
-      "statusChance": 0.2
+      "status": null,
+      "statusChance": 0
     },
 
     
@@ -43,7 +43,7 @@
       "id": "Sean",
       "name": "🛠️ Repair",
       "desc": "Restore around 30 HP.",
-      "speed": "slow",
+      "speed": "fast",
       "damage": [-25, -35],
       "status": null,
       "statusChance": 0
