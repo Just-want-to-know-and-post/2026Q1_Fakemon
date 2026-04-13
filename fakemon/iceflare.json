@@ -46,41 +46,41 @@
       "statuses": [
     {
       "status": "statdwn",
-      "statusChance": 1
-      "statTarget": "atk"
+      "statusChance": 1,
+      "statTarget" : "atk"
       
     },
    {
       "status": "statdwn",
-      "statusChance": .8
+      "statusChance": 0.8,
       "statTarget": "atk"
       
     },
         {
       "status": "statdwn",
-      "statusChance": 1
+      "statusChance": 1,
       "statTarget": "speed"
       
     },
         {
       "status": "statdwn",
-      "statusChance": .8
+      "statusChance": 0.8,
       "statTarget": "speed"
       
     },
 
          {
       "status": "statdwn",
-      "statusChance": 1
+      "statusChance": 1,
       "statTarget": "defence"
       
     },
         {
       "status": "statdwn",
-      "statusChance": .8
+      "statusChance": 0.8,
       "statTarget": "defence"
       
-    },
+    }
   ]
 
     },
@@ -91,8 +91,72 @@
       "desc": "Restore HP.",
       "speed": "slow",
       "damage": [-200, -375],
+      "statuses": [
+    {
       "status": "statup",
-      "statusChance": 0.5
+      "statTarget" : "atk",
+      "statusChance": 1
+    },
+    {
+      "status": "statup",
+      "statTarget" : "atk",
+      "statusChance": 1
+    },
+    {
+      "status": "statup",
+      "statTarget" : "atk",
+      "statusChance": 0.9
+    },
+    {
+      "status": "statup",
+      "statTarget" : "atk",
+      "statusChance": 0.8
+    },
+
+     {
+      "status": "statup",
+      "statTarget" : "defence",
+      "statusChance": 1
+    },
+    {
+      "status": "statup",
+      "statTarget" : "defence",
+      "statusChance": 1
+    },
+    {
+      "status": "statup",
+      "statTarget" : "defence",
+      "statusChance": 0.9
+    },
+    {
+      "status": "statup",
+      "statTarget" : "defence",
+      "statusChance": 0.8
+    }
+    ,
+
+     {
+      "status": "statup",
+      "statTarget" : "speed",
+      "statusChance": 1
+    },
+    {
+      "status": "statup",
+      "statTarget" : "speed",
+      "statusChance": 1
+    },
+    {
+      "status": "statup",
+      "statTarget" : "speed",
+      "statusChance": 0.9
+    },
+    {
+      "status": "statup",
+      "statTarget" : "speed",
+      "statusChance": 0.8
+    }
+  ]
+
     },
 
     {
