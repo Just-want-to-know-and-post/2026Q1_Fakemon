@@ -1,12 +1,12 @@
   {
-  "id": "yourfakemon",
-  "name": "Bes25",
+  "id": "besrat",
+  "name": "besrat",
   "createdBy": "Besrat Fikre",
-  "emoji": "🐲",
+  "emoji": "🔥",
   "type": "Fire",
 
   "hp": 140,
-  "power": 125,
+  "power": 500,
   "speed": 200,
   "defense": 35,
   "accuracy": 91,
@@ -16,8 +16,8 @@
   "moves": [
 
     {
-      "id": "move_one",
-      "name": "🔥 Finisher",
+      "id": "finisher_charged",
+      "name": "🔥 Finisher charged",
       "desc": "A slashing attack to parylyze the opponent.",
       "speed": "fast",
       "damage": [14, 20],
@@ -26,8 +26,8 @@
     },
 
     {
-      "id": "move_two",
-      "name": "⚔️ RKO TSUNAMI",
+      "id": "rko_tsunami",
+      "name": "⚔️ 🌊 RKO TSUNAMI",
       "desc": "A lightning-fast water slap.",
       "speed": "fast",
       "damage": [22, 28],
@@ -36,7 +36,7 @@
     },
 
     {
-      "id": "move_three",
+      "id": "health_power+",
       "name": "💊 Health Power+",
       "desc": "Restore 45 HP.",
       "speed": "slow",
@@ -46,8 +46,8 @@
     },
 
     {
-      "id": "move_four",
-      "name": "😵 Burner",
+      "id": "burner_finisher",
+      "name": "😵 🔥 Burner Finisher",
       "desc": "Burns the enemy's brain. A lot of damage and chaos.",
       "speed": "fast",
       "damage": [32, 38],
