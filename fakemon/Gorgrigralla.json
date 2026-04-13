@@ -61,7 +61,7 @@
       "desc": "Throws a Nanab Berry",
       "speed": "medium",
       "damage": [15, 20],
-      "status": "Confuse",
+      "status": "poison",
   
       "statusChance": 1.0
     }
