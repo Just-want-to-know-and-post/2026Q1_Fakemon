@@ -1,7 +1,8 @@
 {
  "id": "zachary.json",
  "name": "Manic Macho Legs Cat",
- "createdBy": " zachary villanueva"
+ "emoji": ">w<",
+ "createdBy": " zachary villanueva",
  "type": "Fire",
 
 
@@ -12,7 +13,7 @@
  "accuracy": 1000,
 
 
- "description": "Manic Macho Legs Cat, fell into a tub of black licorish, enhansed the beauty of his legs and power of his long distance attacks, now with fire based abilitys.",
+ "description": "Manic Macho Legs Cat, fell into a tub of black licorish, enhansed the beauty of his legs and power of his long distance attacks, popularity is down though, now with fire based attacks.",
 
 
  "moves": [
