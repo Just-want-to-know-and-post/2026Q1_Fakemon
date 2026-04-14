@@ -3,7 +3,7 @@
   "name": "QuickShot",
   "createdBy": "Benjamin John Bero Alcantara",
   "emoji": "🏹",
-  "type": "nature",
+  "type": "Nature",
 
   "hp": 80,
   "power": 85,
@@ -21,8 +21,10 @@
       "desc": "A medium damage arrow with a posion side effect.",
       "speed": "medium",
       "damage": [15, 20],
-      "status": "Poison",
-      "statusChance": 1.0
+      "status": null,
+      "statusChance":0
+      //"status": "Poison",
+      //"statusChance": 1.0
     },
 
     {
