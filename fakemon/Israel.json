@@ -3,7 +3,7 @@
   "name": "Foreign Country",
   "createdBy": "Kyan Olugbile",
   "emoji": "🇮🇱",
-  "type": "normal",
+  "type": "Normal",
 
  
   "hp": 70,      
@@ -34,8 +34,8 @@
       "desc": "A lightning-fast punch",
       "speed": "fast",
       "damage": [5, 15],
-      "status": "Paralyze",
-      "statusChance": 100
+      "status": "paralyze",
+      "statusChance": 1
     },
 
    
