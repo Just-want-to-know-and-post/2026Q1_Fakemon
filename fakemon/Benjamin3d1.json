@@ -56,14 +56,8 @@
       "desc": "Restore 0 to 25 HP and gives stat up effect",
       "speed": "slow",
       "damage": [0, -25],
-      "statuses": [
-    {
-      "status": "speed",
-      "statusChance": 1
-    },
-    {
-      "status": "accuracy",
-      "statusChance": 0.25
+      "statusChance": 1.0,
+      "statTarget": "accuracy"
     },
     {
       "id": "smoke_machine",
